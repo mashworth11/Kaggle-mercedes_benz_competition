@@ -86,13 +86,13 @@ plt.xlabel('time (s)')
 def bivariate_plotter(var_name, plot_type):
     col_order = np.sort(train_df[var_name].unique()).tolist()
     #plt.figure()
-    plot_type(x = var_name, y = 'y', data = train_df, order = col_order)
+    plot_type(x = var_name, y = 'y', data = train_df, order = col_order,  color = 'grey')
     plt.xlabel(var_name)
     plt.ylabel('time (s)')
     plt.title(f'Distribution of y (time in s) with {var_name}')
     
 bivariate_plotter("X0", sns.stripplot)
-bivariate_plotter("X3", sns.violinplot)
+bivariate_plotter("X3", sns.boxplot)
 # =============================================================================
 # Observations: In general, across the variables, average test time seems to be around 100s. 
 # =============================================================================
@@ -101,7 +101,7 @@ bivariate_plotter("X3", sns.violinplot)
 
 
 # Stuff to do for next time:
-# 1) how to establish whether ID is significant or not?
+# 1) how to establish whether ID is significant or not? Done
 # 2) univariate analysis on categorical features see: https://www.kaggle.com/anokas/mercedes-eda-xgboost-starter-0-55
 # 3) what is the importance of feature interactions? as suggested by winner
 # 4) how to know if data is noisy and what is the effect?
